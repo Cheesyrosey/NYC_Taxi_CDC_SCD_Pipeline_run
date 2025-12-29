@@ -132,8 +132,8 @@ This project showcases **real data engineering capabilities**:
 ### 🧠 Human-friendly summary
 This isn’t just SQL + Pyspark. It shows the ability to **design, build, test, and operate real data pipelines** that safely handle **evolving** data.
 
-### 🌩️Technologies I could use in a real cloud environment
-
+5\.Technologies I could use in a real cloud environment🌩️
+----------------------------------------------------------
 _(Not used here to avoid cloud costs — but included to demonstrate architectural awareness.)_
 
 * **Delta Live Tables (DLT) Delta Live Tables (DLT)** <br>
@@ -155,11 +155,9 @@ In this project: I focused on data engineering, but the SCD Type 2 Gold table is
 Common practice: Pipelines send alerts, logs, and metrics to detect failures quickly.
 In this project: I added a Databricks Job email alert for failure notifications — a lightweight but realistic monitoring step.
 
-### 🧠 Human-friendly summary 
-This project uses the **same tools real companies use in production**. It also demonstrates awareness of the broader cloud data ecosystem — even when those tools aren’t directly used.
 
 
-5\. Notebook Overview 📚
+6\. Notebook Overview 📚
 ------------------------
 
 ### 01\_base\_fact\_trips
@@ -206,7 +204,7 @@ Runs automated checks:
 
 Each notebook represents **one step in the assembly line** — from raw data to clean historical truth, with quality checks at the end.
 
-6\. Extras ✨
+7\. Extras ✨
 ------------
 © 2025 Joy — This project is created for learning and portfolio demonstration.  
 If you reuse or adapt any part of this work, please provide proper attribution.
