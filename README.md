@@ -7,7 +7,7 @@
 ------------------
 ### 🧠 Human-friendly summary
 
-Imagine you run a taxi company. You have trip record that consists of the time your driver picks up the passenger and the time of drop off, together with the fare amount and the distance, ect. However, the server keeps sending updates on the drive. Every time a trip record changes — maybe the fare was corrected or the pickup ZIP code was updated — you want to:
+Imagine you run a taxi company. Each car continuously sends trip records — when the passenger was picked up, when they were dropped off, the fare amount, the distance, and other details. But these records don’t stay static. As the trip progresses, the system keeps sending updates. Maybe the fare was adjusted, or the pickup ZIP code was corrected. Every time a trip record changes, you want to:
 
 *   Keep the old version
     
@@ -66,17 +66,16 @@ flowchart TD
 
 ### 🧠 Human-friendly summary
 
-Think of this like a factory assembly line:
+Think of this pipeline like a factory assembly line:
 
-*   **Bronze** = raw ingredients: CDC event
-    
-*   **Silver** = cleaned and prepared: Flattened CDC 'after' data
-    
-*   **Gold** = final packaged product: Upserted history table
-    
-*   **Tests** = quality control: Unit tests to ensure everything works correctly
-    
+* Bronze = raw ingredients → incoming CDC events (before/after changes)
 
+* Silver = cleaned and prepared → flattened “after” snapshots ready for business use
+
+* Gold = final packaged product → SCD Type 2 history table with upserts applied
+
+* Tests = quality control → automated checks ensuring the pipeline behaves correctly
+    
 Each CDC batch goes through the same steps — just like a real production pipeline.
 
 3\. Technology Used ⚙️
@@ -105,22 +104,31 @@ This project showcases **real data engineering capabilities**:
 
 *   ✔️Designing **production-style** data pipelines <br>
     Built a multi‑layer Bronze → Silver → Gold pipeline that mirrors real enterprise medallion architecture.
+    
 *   ✔️Implementing **CDC ingestion** patterns <br>
     Simulated multi‑batch CDC updates (before/after rows) to mimic how real systems capture data changes.
+    
 *   ✔️Building **SCD Type 2** history tables <br>
     Maintained full change history using valid_from, valid_to, and is_current fields for every entity.
+    
 *   ✔️Writing **idempotent Delta MERGE** logic <br>
     Used deterministic MERGE patterns so rerunning a batch produces the same correct result every time.
+    
 *   ✔️**Debugging** complex data flows <br>
     Traced issues across Bronze → Silver → Gold using time travel, schema checks, prevention of duplicates, and event timestamp comparisons.
+    
 *   ✔️Creating **parameterized, multi-batch workflows** <br>
     Used Databricks widgets (dbutils.widgets.get("batch_id")) to run the same pipeline across multiple CDC batches.
+    
 *   ✔️Writing **automated data quality tests** <br>
     Added schema validation, CDC correctness checks, and SCD Type 2 integrity tests as Job quality gates.
+    
 *   ✔️**Optimizing** Delta tables <br>
     Applied OPTIMIZE and ZORDER to reduce file fragmentation and improve query performance.
+    
 *   ✔️Understanding **orchestration & job dependencies** <br>
     Built a 13‑task Databricks Job Flow with strict upstream/downstream dependencies and failure alerts.
+    
 ### 🧠 Human-friendly summary
 This isn’t just SQL + Pyspark. It shows the ability to **design, build, test, and operate real data pipelines** that safely handle **evolving** data.
 
