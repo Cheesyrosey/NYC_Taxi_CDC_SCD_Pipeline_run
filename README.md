@@ -100,7 +100,7 @@ Each CDC batch goes through the same steps — just like a real production pipel
 4\. Skills Demonstrated 🎯
 --------------------------
 
-This project showcases **real data engineering capabilities**:
+✅This project showcases **real data engineering capabilities**:
 
 *   ✔️Designing **production-style** data pipelines <br>
     Built a multi‑layer Bronze → Silver → Gold pipeline that mirrors real enterprise medallion architecture.
